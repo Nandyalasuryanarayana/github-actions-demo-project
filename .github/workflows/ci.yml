@@ -5,9 +5,9 @@ on: [push]
 jobs:
     build:
         runs-on: ubuntu-24.04
-        strategy:
-            matrix:
-                node: [ 20, 22, 24 ]
+        # strategy:
+        #     matrix:
+        #         node: [ 20, 22, 24 ]
         name: Node ${{ matrix.node }} sample
  
         steps:
