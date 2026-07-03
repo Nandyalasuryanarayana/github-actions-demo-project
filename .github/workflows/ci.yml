@@ -23,7 +23,7 @@ jobs:
              run: npm install
              
            - name: code format and structure
-             run: npm run lint --fix
+             run: npm lint --fix
 
            - name: compile code
              run: npm build
