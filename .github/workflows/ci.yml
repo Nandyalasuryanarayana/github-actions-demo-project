@@ -22,10 +22,10 @@ jobs:
            - name: install dependencies
              run: npm install
              
-        #    - name: code format and structure
-        #      run: npm lint 
+           - name: test the code
+             run: npm test
 
            - name: compile code
-             run: npm build
+             run: npm run build
         
         
