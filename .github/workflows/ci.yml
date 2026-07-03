@@ -20,7 +20,7 @@ jobs:
                 package-manager-cache: false
         
            - name: install dependencies
-             run: npm ci
+             run: npm install
              
            - name: code format and structure
              run: npm run lint --fix
