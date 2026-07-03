@@ -1,0 +1,31 @@
+name: Top-workflow
+
+on: [push]
+
+jobs:
+    build:
+        runs-on: ubuntu-24.04
+        strategy:
+            matrix:
+                node: [ 20, 22, 24 ]
+        name: Node ${{ matrix.node }} sample
+ 
+        steps:
+           - uses: actions/checkout@v4
+           
+           - name: setup nod
+             uses: actions/setup-node@v6
+             with:
+                node-version: ${{ matrix.node }}
+                package-manager-cache: false
+        
+           - name: install dependencies
+             run: npm ci
+             
+           - name: code format and structure
+             run: npm run lint --fix
+
+           - name: compile code
+             run: npm build
+        
+        
