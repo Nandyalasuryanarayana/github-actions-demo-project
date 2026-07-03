@@ -1,6 +1,14 @@
 name: Top-workflow
 
-on: [push]
+on:
+    push:
+        branches:
+            - main
+            - feature
+    pull_request:
+        branches:
+            - feature
+
 
 jobs:
     build:
@@ -20,7 +28,8 @@ jobs:
                 package-manager-cache: false
         
            - name: install dependencies
-             run: npm ci
+             if: ${{ github.event_name }}
+             run: npm install
              
            - name: code format and structure
              run: npm run lint --fix
